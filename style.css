@@ -1,0 +1,233 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Desktop Styles (default - screens > 768px) */
+.desktop {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.desktop header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.desktop header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.desktop main {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    min-height: 60vh;
+}
+
+.desktop main h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.desktop footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Mobile Styles (screens <= 768px) - OLD TWITTER THEME */
+.mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+    
+    .mobile {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        background: #15202b;
+        color: #fff;
+    }
+    
+    /* Twitter Top Navigation Bar */
+    .twitter-topbar {
+        background: #1da1f2;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        flex-shrink: 0;
+    }
+    
+    .menu-btn, .search-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .twitter-topbar h1 {
+        font-size: 1.4em;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    /* Twitter Sidebar Navigation */
+    .twitter-sidebar {
+        background: #1a2637;
+        width: 70px;
+        flex-shrink: 0;
+        padding: 10px 0;
+    }
+    
+    .twitter-sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .twitter-sidebar li {
+        margin: 15px 0;
+        text-align: center;
+    }
+    
+    .twitter-sidebar a {
+        color: #8899a6;
+        text-decoration: none;
+        font-size: 12px;
+        display: block;
+    }
+    
+    .twitter-sidebar a:hover {
+        color: #fff;
+    }
+    
+    /* Twitter Main Feed */
+    .twitter-feed {
+        flex: 1;
+        overflow-y: auto;
+        background: #15202b;
+        padding: 10px;
+    }
+    
+    /* Tweet Composer */
+    .tweet-composer {
+        background: #1a2637;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .tweet-composer textarea {
+        width: 100%;
+        background: #15202b;
+        border: none;
+        color: #fff;
+        resize: none;
+        font-family: inherit;
+        font-size: 16px;
+        min-height: 60px;
+        outline: none;
+    }
+    
+    .tweet-composer button {
+        background: #1da1f2;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: bold;
+        float: right;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    /* Tweet Cards */
+    .tweet {
+        background: #1a2637;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    
+    .tweet-content strong {
+        color: #fff;
+        font-size: 15px;
+    }
+    
+    .timestamp {
+        color: #8899a6;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    
+    .tweet-content p {
+        margin: 8px 0;
+        color: #e1e8ed;
+        line-height: 1.4;
+    }
+    
+    .tweet-actions {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .tweet-actions button {
+        background: none;
+        border: none;
+        color: #8899a6;
+        font-size: 13px;
+        padding: 5px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .tweet-actions button:hover {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .twitter-topbar h1 {
+        font-size: 1.2em;
+    }
+    
+    .twitter-sidebar {
+        width: 60px;
+    }
+}
