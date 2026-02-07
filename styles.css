@@ -256,3 +256,67 @@ body {
     margin: 0;
     color: #8899a6;
 }
+
+/* Discover Grid Layout */
+.discover-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 80px;
+}
+
+.grid-item {
+    background: #1a2332;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    padding: 15px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    aspect-ratio: 1;
+}
+
+.grid-item:hover {
+    background: #253142;
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+}
+
+.folder-icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+.grid-label {
+    font-size: 0.75em;
+    color: #e1e8ed;
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+    .discover-grid {
+        gap: 8px;
+        padding: 8px;
+    }
+    
+    .grid-item {
+        padding: 12px 5px;
+    }
+    
+    .folder-icon {
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+    
+    .grid-label {
+        font-size: 0.7em;
+    }
+}
