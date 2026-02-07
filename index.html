@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website Title</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="desktop">
@@ -23,45 +21,49 @@
         </footer>
     </div>
     
-    <<div class="mobile">
-    <!-- Top Bar (Old Twitter style) -->
-    <header class="twitter-topbar">
-        <button class="menu-btn">☰</button>
-        <h1>Twitter</h1>
-        <button class="search-btn">🔍</button>
-    </header>
-    
-    <!-- Sidebar Navigation -->
-    <nav class="twitter-sidebar">
-        <ul>
-            <li><a href="#"><strong>Home</strong></a></li>
-            <li><a href="#">Notifications</a></li>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Main Feed -->
-    <main class="twitter-feed">
-        <div class="tweet-composer">
-            <textarea placeholder="What's happening?"></textarea>
-            <button>Tweet</button>
-        </div>
+    <div class="mobile">
+        <!-- Top Header with Centered Logo -->
+        <header class="mobile-header">
+            <div class="logo">MyLogo</div>
+        </header>
         
-        <!-- Sample Tweets -->
-        <article class="tweet">
-            <img src="https://via.placeholder.com/40x40/1da1f2/ffffff?text=@" alt="User" class="avatar">
-            <div class="tweet-content">
-                <strong>@username</strong> <span class="timestamp">2h</span>
-                <p>This is a sample tweet from old Twitter mobile!</p>
-                <div class="tweet-actions">
-                    <button>Reply</button>
-                    <button>Retweet</button>
-                    <button>Like</button>
-                </div>
+        <!-- Main Content Area -->
+        <main class="mobile-main">
+            <div class="content-card">
+                <h2>Welcome</h2>
+                <p>Your mobile content goes here.</p>
             </div>
-        </article>
-    </main>
-</div>
+            
+            <div class="content-card">
+                <h3>Featured Post</h3>
+                <p>This is a sample post on your mobile interface.</p>
+            </div>
+            
+            <div class="content-card">
+                <h3>Another Update</h3>
+                <p>Add more content cards as needed.</p>
+            </div>
+        </main>
+        
+        <!-- Bottom Toolbar with 4 Sections -->
+        <footer class="mobile-footer">
+            <button class="footer-btn active">
+                <span class="icon">🏠</span>
+                <span class="label">Home</span>
+            </button>
+            <button class="footer-btn">
+                <span class="icon">🔗</span>
+                <span class="label">Connect</span>
+            </button>
+            <button class="footer-btn">
+                <span class="icon">🔍</span>
+                <span class="label">Discover</span>
+            </button>
+            <button class="footer-btn">
+                <span class="icon">👤</span>
+                <span class="label">Me</span>
+            </button>
+        </footer>
+    </div>
 </body>
 </html>
