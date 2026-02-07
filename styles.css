@@ -51,7 +51,7 @@ body {
     padding: 30px;
 }
 
-/* Mobile Styles (screens <= 768px) - OLD TWITTER THEME */
+/* Mobile Styles (screens <= 768px) */
 .mobile {
     display: none;
 }
@@ -65,169 +65,120 @@ body {
         display: flex;
         flex-direction: column;
         height: 100vh;
-        overflow: hidden;
-        background: #15202b;
-        color: #fff;
+        background: #f5f5f5;
     }
     
-    /* Twitter Top Navigation Bar */
-    .twitter-topbar {
-        background: #1da1f2;
-        padding: 10px;
+    /* Top Header with Centered Logo */
+    .mobile-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 15px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         flex-shrink: 0;
     }
     
-    .menu-btn, .search-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 20px;
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    .twitter-topbar h1 {
-        font-size: 1.4em;
+    .logo {
+        font-size: 1.5em;
         font-weight: bold;
-        margin: 0;
+        color: white;
+        letter-spacing: 1px;
     }
     
-    /* Twitter Sidebar Navigation */
-    .twitter-sidebar {
-        background: #1a2637;
-        width: 70px;
-        flex-shrink: 0;
-        padding: 10px 0;
-    }
-    
-    .twitter-sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .twitter-sidebar li {
-        margin: 15px 0;
-        text-align: center;
-    }
-    
-    .twitter-sidebar a {
-        color: #8899a6;
-        text-decoration: none;
-        font-size: 12px;
-        display: block;
-    }
-    
-    .twitter-sidebar a:hover {
-        color: #fff;
-    }
-    
-    /* Twitter Main Feed */
-    .twitter-feed {
+    /* Main Content Area */
+    .mobile-main {
         flex: 1;
         overflow-y: auto;
-        background: #15202b;
-        padding: 10px;
+        padding: 15px;
+        padding-bottom: 80px; /* Space for fixed footer */
     }
     
-    /* Tweet Composer */
-    .tweet-composer {
-        background: #1a2637;
-        padding: 15px;
+    .content-card {
+        background: white;
         border-radius: 12px;
+        padding: 20px;
         margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     
-    .tweet-composer textarea {
-        width: 100%;
-        background: #15202b;
-        border: none;
-        color: #fff;
-        resize: none;
-        font-family: inherit;
-        font-size: 16px;
-        min-height: 60px;
-        outline: none;
-    }
-    
-    .tweet-composer button {
-        background: #1da1f2;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: bold;
-        float: right;
-        margin-top: 5px;
-        cursor: pointer;
-    }
-    
-    /* Tweet Cards */
-    .tweet {
-        background: #1a2637;
-        padding: 15px;
-        border-radius: 12px;
+    .content-card h2 {
+        color: #667eea;
+        font-size: 1.5em;
         margin-bottom: 10px;
+    }
+    
+    .content-card h3 {
+        color: #333;
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+    
+    .content-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+    
+    /* Bottom Toolbar (Fixed) */
+    .mobile-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
         display: flex;
-        gap: 10px;
+        justify-content: space-around;
+        padding: 8px 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #e0e0e0;
     }
     
-    .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        flex-shrink: 0;
-    }
-    
-    .tweet-content strong {
-        color: #fff;
-        font-size: 15px;
-    }
-    
-    .timestamp {
-        color: #8899a6;
-        font-size: 14px;
-        margin-left: 5px;
-    }
-    
-    .tweet-content p {
-        margin: 8px 0;
-        color: #e1e8ed;
-        line-height: 1.4;
-    }
-    
-    .tweet-actions {
+    .footer-btn {
+        flex: 1;
         display: flex;
-        gap: 20px;
-    }
-    
-    .tweet-actions button {
+        flex-direction: column;
+        align-items: center;
         background: none;
         border: none;
-        color: #8899a6;
-        font-size: 13px;
-        padding: 5px 8px;
-        border-radius: 4px;
+        padding: 8px;
         cursor: pointer;
+        transition: all 0.2s;
     }
     
-    .tweet-actions button:hover {
-        background: rgba(255,255,255,0.1);
-        color: #fff;
+    .footer-btn .icon {
+        font-size: 1.5em;
+        margin-bottom: 4px;
+        color: #999;
+    }
+    
+    .footer-btn .label {
+        font-size: 0.75em;
+        color: #999;
+        font-weight: 500;
+    }
+    
+    .footer-btn.active .icon,
+    .footer-btn.active .label {
+        color: #667eea;
+    }
+    
+    .footer-btn:hover .icon,
+    .footer-btn:hover .label {
+        color: #667eea;
     }
 }
 
 /* Extra small screens */
 @media (max-width: 480px) {
-    .twitter-topbar h1 {
-        font-size: 1.2em;
+    .logo {
+        font-size: 1.3em;
     }
     
-    .twitter-sidebar {
-        width: 60px;
+    .footer-btn .icon {
+        font-size: 1.3em;
+    }
+    
+    .footer-btn .label {
+        font-size: 0.7em;
     }
 }
