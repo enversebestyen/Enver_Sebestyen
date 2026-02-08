@@ -379,21 +379,12 @@ body {
 }
 
 .profile-banner {
-    flex: 1;
+    flex: 0.8; /* Takes 80% of available space instead of 100% */
     background: #1a2332;
     border: 1px solid #2d3748;
     border-radius: 12px;
     margin: 0 12px 12px 12px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 150px;
-    max-height: 250px; /* Limit banner height */
-}
-
-.profile-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crop to fit without distortion */
+    max-height: 300px;
 }
