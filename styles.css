@@ -274,83 +274,46 @@ body {
         background: #15202b;
     }
     
-    /* ... (keep all your existing mobile styles) ... */
-    
-    /* Discover Grid Layout - INSIDE MOBILE QUERY */
-    .discover-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        padding: 10px;
-        padding-bottom: 80px;
-        overflow-y: auto;
-    }
-    
-    .grid-item {
-        background: #1a2332;
-        border: 1px solid #2d3748;
-        border-radius: 12px;
-        padding: 15px 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.2s;
-        aspect-ratio: 1;
-    }
-    
-    .grid-item:hover {
-        background: #253142;
-        border-color: #58a6ff;
-        transform: translateY(-2px);
-    }
-    
-    .folder-icon {
-        font-size: 2em;
-        margin-bottom: 8px;
-    }
-    
-    .grid-label {
-        font-size: 0.75em;
-        color: #e1e8ed;
-        margin: 0;
-        word-wrap: break-word;
-        line-height: 1.2;
-    }
+    /* Discover Grid Layout - INSIDE @media (max-width: 768px) */
+.discover-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Changed from 4 to 2 */
+    gap: 15px;
+    padding: 15px;
+    padding-bottom: 80px;
+    overflow-y: auto;
 }
 
-/* Extra small screens - ADJUST GRID */
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.3em;
-    }
-    
-    .footer-btn .icon {
-        font-size: 1.3em;
-    }
-    
-    .footer-btn .label {
-        font-size: 0.7em;
-    }
-    
-    /* Keep 4 columns but smaller spacing */
-    .discover-grid {
-        gap: 8px;
-        padding: 8px;
-    }
-    
-    .grid-item {
-        padding: 10px 5px;
-    }
-    
-    .folder-icon {
-        font-size: 1.6em;
-        margin-bottom: 5px;
-    }
-    
-    .grid-label {
-        font-size: 0.65em;
-    }
+.grid-item {
+    background: #1a2332;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    padding: 25px 15px;  /* Increased padding for larger boxes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    aspect-ratio: 1;
+}
+
+.grid-item:hover {
+    background: #253142;
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+}
+
+.folder-icon {
+    font-size: 3em;  /* Larger icons for 2-column layout */
+    margin-bottom: 12px;
+}
+
+.grid-label {
+    font-size: 0.95em;  /* Larger text for 2-column layout */
+    color: #e1e8ed;
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.2;
 }
