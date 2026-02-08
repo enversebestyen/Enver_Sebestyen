@@ -389,7 +389,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 150px;
-    max-height: 250px; /* Limit banner height */
+    max-height: 150px; /* Limit banner height */
 }
 
 .profile-banner img {
