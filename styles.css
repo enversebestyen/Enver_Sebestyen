@@ -228,49 +228,50 @@ body {
         color: #8899a6;
     }
     
-    /* Discover Grid Layout - 2x3 with 4x4 sizing */
-    .discover-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 10px;
-        padding-bottom: 80px;
-        overflow-y: auto;
-    }
-    
-    .grid-item {
-        background: #1a2332;
-        border: 1px solid #2d3748;
-        border-radius: 12px;
-        padding: 15px 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.2s;
-        aspect-ratio: 1;
-    }
-    
-    .grid-item:hover {
-        background: #253142;
-        border-color: #58a6ff;
-        transform: translateY(-2px);
-    }
-    
-    .folder-icon {
-        font-size: 2em;
-        margin-bottom: 8px;
-    }
-    
-    .grid-label {
-        font-size: 0.75em;
-        color: #e1e8ed;
-        margin: 0;
-        word-wrap: break-word;
-        line-height: 1.2;
-    }
+    /* Discover Grid Layout - Smaller sizing */
+.mobile-main.discover-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+    padding: 15px;
+    padding-bottom: 90px;
+    overflow-y: auto;
+}
+
+.discover-grid .grid-item {
+    background: #1a2332;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 20px 10px; /* Balanced padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 100%;
+}
+
+.discover-grid .grid-item:hover {
+    background: #253142;
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+}
+
+.discover-grid .folder-icon {
+    font-size: 2.5em; /* Slightly smaller */
+    margin-bottom: 10px;
+}
+
+.discover-grid .grid-label {
+    font-size: 0.85em; /* Readable but compact */
+    color: #e1e8ed;
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.3;
 }
 
 /* Extra small screens */
