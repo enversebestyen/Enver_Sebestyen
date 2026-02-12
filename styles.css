@@ -39,6 +39,8 @@ body {
     line-height: 1.6;
     color: #e1e8ed;
     background: #15202b;
+    margin: 0;           
+    padding: 0;          
 }
 
 /* Mobile Styles (screens <= 768px) - DARK MODE */
