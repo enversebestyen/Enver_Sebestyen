@@ -4,20 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website Title</title>
+      <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
     <link rel="stylesheet" href="styles.css">
+</head>
+body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000;
+            padding: 40px 20px;
+        }
+        
+        .desktop {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .bio-section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+        
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .bio-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ccc;
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        
+        .discover {
+            margin-bottom: 50px;
+        }
+        
+        .discover h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #999;
+        }
+        
+        .discover ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .discover ul li {
+            margin: 15px 0;
+        }
+        
+        .discover ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .discover ul li a:hover {
+            color: #999;
+        }
+        
+        .contact {
+            margin-bottom: 50px;
+        }
+        
+        .contact h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #999;
+        }
+        
+        .contact a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <div class="desktop">
-        <!-- Complete DESKTOP interface here -->
-        <header>
-            <h1>Desktop Header</h1>
-        </header>
-        <main>
-            <h2>Desktop Content</h2>
-            <p>Add your desktop content here.</p>
-        </main>
+        <section class="bio-section">
+            <div class="profile-picture">
+                <img src="your-profile-photo.jpg" alt="Your Name">
+            </div>
+            <h1>Your Name</h1>
+            <p>Write your brief bio here. Keep it concise and professional. Share what you do, your interests, and what visitors can expect to find on your site.</p>
+        </section>
+        
+        <section class="discover">
+            <h2>Discover</h2>
+            <ul>
+                <li><a href="/projects">My Projects</a></li>
+                <li><a href="/blogs">My Blogs</a></li>
+                <li><a href="/art">My Art and Designs</a></li>
+                <li><a href="/photos">My Photos</a></li>
+            </ul>
+        </section>
+        
+        <section class="contact">
+            <h2>Contact</h2>
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </section>
+        
         <footer>
-            <p>&copy; 2026 Your Website</p>
+            <p>&copy; 2026 Your Name</p>
         </footer>
     </div>
     
