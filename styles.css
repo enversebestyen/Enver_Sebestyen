@@ -11,6 +11,7 @@ body, html {
     font-family: 'Arial', sans-serif;
     background: #15202b;
     color: #e1e8ed;
+    overflow-x: hidden; /* Prevent horizontal "dragging" or scrolling */
 }
 
 /* --- THE VIEWPORT SWITCH --- */
@@ -25,6 +26,7 @@ body, html {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
+    padding: 20px;
 }
 
 .mobile {
@@ -42,7 +44,7 @@ body, html {
         flex-direction: column;
         height: 100vh;
         background: #15202b;
-        overflow: hidden;
+        overflow: hidden; /* Keeps the main container rigid */
     }
 }
 
@@ -65,30 +67,45 @@ body, html {
     flex: 1;
     overflow-y: auto;
     padding: 15px;
-    padding-bottom: 80px;
+    padding-bottom: 90px; /* Increased space to clear the footer */
 }
 
-/* Grid layout for Discover Page */
+/* --- FIXED GRID LOGIC --- */
 .discover-grid {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    /* minmax(0, 1fr) ensures columns cannot expand past their 50% width */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 12px;
+    align-content: start; /* Prevents items from stretching to fill the whole screen height */
 }
 
 .grid-item {
     background: #1a2332;
     border: 1px solid #2d3748;
     border-radius: 12px;
-    padding: 30px 10px;
+    padding: 15px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* This keeps items square and prevents vertical "dragging" */
+    aspect-ratio: 1 / 1; 
+    width: 100%;
 }
 
-.folder-icon { font-size: 2rem; margin-bottom: 8px; }
+.folder-icon { 
+    font-size: 2.2rem; 
+    margin-bottom: 8px; 
+}
 
+.grid-label {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* --- FOOTER --- */
 .mobile-footer {
     position: fixed;
     bottom: 0;
@@ -99,6 +116,7 @@ body, html {
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid #2d3748;
+    z-index: 1000;
 }
 
 .footer-btn {
@@ -107,11 +125,12 @@ body, html {
     flex-direction: column;
     align-items: center;
     color: #5a6c7d;
+    flex: 1;
 }
 
 .footer-btn.active { color: #58a6ff; }
 .footer-btn .icon { font-size: 1.4rem; }
-.footer-btn .label { font-size: 0.7rem; }
+.footer-btn .label { font-size: 0.7rem; margin-top: 2px; }
 
 /* --- DESKTOP SPECIFIC STYLES --- */
 .d-bio-section, .d-discover {
