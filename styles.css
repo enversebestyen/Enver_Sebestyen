@@ -218,3 +218,17 @@ body, html {
 .footer-btn .label { 
     font-size: 0.7rem; 
 }
+
+@media (min-width: 769px) {
+    .typing-text::after {
+        content: "|";
+        animation: blink 0.7s infinite;
+        margin-left: 5px;
+        color: #87ceeb;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+}
