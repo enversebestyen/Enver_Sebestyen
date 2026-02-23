@@ -1,3 +1,16 @@
+/* --- Global Resets --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #15202b;
+    color: #e1e8ed;
+}
+
+/* --- Desktop Styles (Default View) --- */
 .d-desktop {
     display: flex;
     flex-direction: column;
@@ -9,25 +22,16 @@
     box-sizing: border-box;
     background-color: #000000;
     color: #ffffff;
-    margin: 0;  /* Add this - removes body margin for this container */
-    position: absolute;  /* Add this - breaks it out of normal flow */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
-.d-bio-section,
-.d-discover,
-.d-contact {
+/* Hide mobile view by default on desktop */
+.mobile {
+    display: none;
+}
+
+.d-bio-section, .d-discover, .d-contact {
     max-width: 600px;
     margin-bottom: 2rem;
-}
-
-.d-profile-picture {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
 }
 
 .d-discover ul {
@@ -39,23 +43,19 @@
     margin: 0.5rem 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #e1e8ed;
-    background: #15202b;       
+.d-discover a, .d-contact a {
+    color: #58a6ff;
+    text-decoration: none;
 }
 
-/* Mobile Styles (screens <= 768px) - DARK MODE */
-.mobile {
-    display: none;
-}
-
+/* --- Mobile Styles (Screens <= 768px) --- */
 @media (max-width: 768px) {
-    .desktop {
-        display: none;
+    /* Kill the desktop view entirely */
+    .d-desktop {
+        display: none !important;
     }
     
+    /* Reveal the mobile view */
     .mobile {
         display: flex;
         flex-direction: column;
@@ -64,16 +64,14 @@ body {
         overflow: hidden;
     }
     
-    /* Top Header - Reduced height */
     .mobile-header {
         background: linear-gradient(135deg, #1a2332 0%, #0d1117 100%);
         padding: 12px 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        flex-shrink: 0;
         border-bottom: 1px solid #2d3748;
+        flex-shrink: 0;
     }
     
     .logo {
@@ -83,7 +81,6 @@ body {
         letter-spacing: 1px;
     }
     
-    /* Main Content Area */
     .mobile-main {
         flex: 1;
         overflow-y: auto;
@@ -97,28 +94,9 @@ body {
         border-radius: 12px;
         padding: 20px;
         margin-bottom: 15px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         border: 1px solid #2d3748;
     }
     
-    .content-card h2 {
-        color: #ffffff;
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-    
-    .content-card h3 {
-        color: #e1e8ed;
-        font-size: 1.2em;
-        margin-bottom: 8px;
-    }
-    
-    .content-card p {
-        color: #8899a6;
-        line-height: 1.6;
-    }
-    
-    /* Bottom Toolbar - Compact */
     .mobile-footer {
         position: fixed;
         bottom: 0;
@@ -128,9 +106,9 @@ body {
         display: flex;
         justify-content: space-around;
         padding: 6px 0;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
         border-top: 1px solid #2d3748;
         height: 58px;
+        z-index: 1000;
     }
     
     .footer-btn {
@@ -138,243 +116,46 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: none;
-        border: none;
-        padding: 6px;
-        cursor: pointer;
-        transition: all 0.2s;
         text-decoration: none;
     }
     
-    .footer-btn .icon {
-        font-size: 1.4em;
-        margin-bottom: 3px;
-        color: #5a6c7d;
-    }
+    .footer-btn .icon { font-size: 1.4em; color: #5a6c7d; margin-bottom: 3px; }
+    .footer-btn .label { font-size: 0.7em; color: #5a6c7d; font-weight: 500; }
     
-    .footer-btn .label {
-        font-size: 0.7em;
-        color: #5a6c7d;
-        font-weight: 500;
-    }
-    
-    .footer-btn.active .icon,
-    .footer-btn.active .label {
+    .footer-btn.active .icon, .footer-btn.active .label {
         color: #58a6ff;
     }
-    
-    .footer-btn:hover .icon,
-    .footer-btn:hover .label {
-        color: #58a6ff;
-    }
-    
-    /* Contact page styles */
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px !important;
-    }
-    
-    .contact-icon {
-        font-size: 2em;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(88, 166, 255, 0.1);
-        border-radius: 50%;
-        flex-shrink: 0;
-    }
-    
-    .contact-info {
-        flex: 1;
-    }
-    
-    .contact-info h3 {
-        margin: 0 0 5px 0;
-        color: #ffffff;
-        font-size: 1.1em;
-    }
-    
-    .contact-info a {
-        color: #58a6ff;
-        text-decoration: none;
-        word-break: break-word;
-    }
-    
-    .contact-info a:hover {
-        text-decoration: underline;
-    }
-    
-    .contact-info p {
-        margin: 0;
-        color: #8899a6;
-    }
-    
-    /* Discover Grid - Fit perfectly on screen */
-    .mobile-main.discover-grid {
+
+    /* Support for Profile/Discover/Contact pages inside mobile */
+    .discover-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px;
-        padding: 12px;
-        padding-bottom: 12px;
-        overflow-y: visible;
-        align-content: center;
-        justify-content: center;
     }
-    
-    .discover-grid .grid-item {
+
+    .grid-item {
         background: #1a2332;
         border: 1px solid #2d3748;
         border-radius: 10px;
         padding: 22px 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         text-align: center;
-        cursor: pointer;
-        transition: all 0.2s;
         aspect-ratio: 1;
-        width: 100%;
-        max-width: 100%;
     }
-    
-    .discover-grid .grid-item:hover {
-        background: #253142;
-        border-color: #58a6ff;
-        transform: translateY(-2px);
-    }
-    
-    .discover-grid .folder-icon {
-        font-size: 2.3em;
-        margin-bottom: 8px;
-    }
-    
-    .discover-grid .grid-label {
-        font-size: 0.8em;
-        color: #e1e8ed;
-        margin: 0;
-        word-wrap: break-word;
-        line-height: 1.2;
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #1a2332;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 10px;
     }
 }
 
-/* Extra small screens */
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.3em;
-    }
-    
-    .footer-btn .icon {
-        font-size: 1.3em;
-    }
-    
-    .footer-btn .label {
-        font-size: 0.65em;
-    }
-    
-    .mobile-main.discover-grid {
-        gap: 10px;
-        padding: 10px;
-    }
-    
-    .discover-grid .grid-item {
-        padding: 18px 10px;
-    }
-    
-    .discover-grid .folder-icon {
-        font-size: 2em;
-        margin-bottom: 6px;
-    }
-    
-    .discover-grid .grid-label {
-        font-size: 0.75em;
-    }
-}
-
-/* Chrome-specific viewport fix */
+/* Viewport height fix for mobile browsers */
 @supports (-webkit-appearance: none) {
     @media (max-width: 768px) {
-        .mobile {
-            height: 100dvh;
-        }
+        .mobile { height: 100dvh; }
     }
-}
-
-/* Profile Page Styles */
-.mobile-main.profile-page {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.profile-picture-container {
-    padding: 20px 0 15px 0;
-    display: flex;
-    justify-content: center;
-    background: #15202b;
-}
-
-.profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #58a6ff;
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
-}
-
-.profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-bio {
-    background: #1a2332;
-    border: 1px solid #2d3748;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 0 12px 12px 12px;
-    text-align: center;
-}
-
-.profile-bio h2 {
-    color: #ffffff;
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
-.profile-bio .username {
-    color: #58a6ff;
-    font-size: 0.95em;
-    margin-bottom: 12px;
-}
-
-.profile-bio p {
-    color: #8899a6;
-    line-height: 1.5;
-    font-size: 0.9em;
-}
-
-.profile-banner {
-    flex: 0.8; /* Takes 80% of available space instead of 100% */
-    background: #1a2332;
-    border: 1px solid #2d3748;
-    border-radius: 12px;
-    margin: 0 12px 12px 12px;
-    overflow: hidden;
-    min-height: 150px;
-    max-height: 300px;
-}
-
-.profile-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center; /* Options: center top, center bottom, left center, right center */
 }
