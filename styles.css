@@ -22,7 +22,48 @@ body, html {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
-    padding: 20px;
+    padding: 5vh 25vw;
+}
+
+.d-desktop > section {
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+.d-desktop h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.d-desktop h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.d-desktop p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.d-desktop ul {
+    list-style: none;
+    padding: 0;
+}
+
+.d-desktop li {
+    margin: 1.2rem 0;
+}
+
+.d-desktop a {
+    color: #87ceeb;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.d-desktop a:hover {
+    text-decoration: underline;
+    color: #b0e0e6;
 }
 
 .mobile {
