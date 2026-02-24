@@ -73,6 +73,20 @@ body, html {
     color: #b0e0e6;
 }
 
+@media (min-width: 769px) {
+    .typing-text::after {
+        content: "|";
+        animation: blink 0.7s infinite;
+        margin-left: 5px;
+        color: #87ceeb;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+}
+
 .mobile {
     display: none !important;
 }
@@ -80,7 +94,7 @@ body, html {
 @media (max-width: 768px) {
     body, html {
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: hidden;
     }
 
     .d-desktop {
@@ -94,174 +108,145 @@ body, html {
         background: #15202b;
         overflow: hidden;
     }
-}
 
-.mobile-header {
-    background: #0d1117;
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #2d3748;
-    flex-shrink: 0;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
-}
-
-.mobile-main {
-    flex: 1;
-    overflow-y: auto;
-    padding: 12px;
-    padding-bottom: 80px;
-}
-
-.content-card, .profile-bio, .profile-banner {
-    background: #1a2332;
-    border: 1px solid #2d3748;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.content-card h2, .profile-bio h2 {
-    color: #ffffff;
-    margin-top: 0;
-    font-size: 1.3rem;
-}
-
-.content-card p, .profile-bio p {
-    color: #8899a6;
-    line-height: 1.5;
-    margin-bottom: 0;
-}
-
-.content-card a, .contact-info a {
-    color: #87ceeb !important;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Update these sections in your styles.css */
-
-.discover-grid-container {
-    display: grid !important;
-    /* This creates two equal columns with no extra outer space */
-    grid-template-columns: 1fr 1fr !important;
-    /* This ensures the grid fills the full height of the main area */
-    grid-template-rows: 1fr 1fr !important;
-    gap: 8px; /* Reduced gap between the 4 boxes */
-    padding: 8px; /* Small padding from the edge of the screen */
-    height: calc(100vh - 123px); /* Accounts for header (58px) and footer (65px) */
-}
-
-.discover-grid-container .grid-item {
-    background: #1a2332;
-    border: 1px solid #2d3748;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    height: 100%; /* Forces the box to fill its grid cell */
-    transition: background 0.2s;
-}
-
-.discover-grid-container .folder-icon {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
-}
-
-.discover-grid-container .grid-label {
-    font-size: 1rem;
-    color: #ffffff;
-    font-weight: bold;
-    margin: 0;
-}
-
-.grid-item {
-    background: #1a2332;
-    border: 1px solid #2d3748;
-    border-radius: 12px;
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.folder-icon { 
-    font-size: 2.2rem; 
-    margin-bottom: 5px; 
-}
-
-.profile-picture-container {
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid #58a6ff;
-    overflow: hidden;
-}
-
-.profile-picture img, .profile-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mobile-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 65px;
-    background: #0d1117;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 1px solid #2d3748;
-}
-
-.footer-btn {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #5a6c7d;
-}
-
-.footer-btn.active { 
-    color: #58a6ff; 
-}
-
-.footer-btn .icon { 
-    font-size: 1.4rem; 
-}
-
-.footer-btn .label { 
-    font-size: 0.7rem; 
-}
-
-@media (min-width: 769px) {
-    .typing-text::after {
-        content: "|";
-        animation: blink 0.7s infinite;
-        margin-left: 5px;
-        color: #87ceeb;
+    .mobile-header {
+        background: #0d1117;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #2d3748;
+        flex-shrink: 0;
+        height: 58px;
     }
 
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
+    .logo {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    .mobile-main {
+        flex: 1;
+        overflow-y: auto;
+        padding: 12px;
+        padding-bottom: 80px;
+    }
+
+    .content-card, .profile-bio, .profile-banner {
+        background: #1a2332;
+        border: 1px solid #2d3748;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .content-card h2, .profile-bio h2 {
+        color: #ffffff;
+        margin-top: 0;
+        font-size: 1.3rem;
+    }
+
+    .content-card p, .profile-bio p {
+        color: #8899a6;
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
+
+    .content-card a, .contact-info a {
+        color: #87ceeb !important;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* GRID FIXES HERE */
+    .discover-grid-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr !important;
+        gap: 12px;
+        padding: 12px;
+        flex: 1; 
+        height: calc(100vh - 123px);
+        overflow: hidden;
+    }
+
+    .discover-grid-container .grid-item {
+        background: #1a2332;
+        border: 1px solid #2d3748;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .discover-grid-container .folder-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .discover-grid-container .grid-label {
+        font-size: 0.9rem;
+        color: #ffffff;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .profile-picture-container {
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #58a6ff;
+        overflow: hidden;
+    }
+
+    .profile-picture img, .profile-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .mobile-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 65px;
+        background: #0d1117;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid #2d3748;
+        z-index: 1000;
+    }
+
+    .footer-btn {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #5a6c7d;
+        flex: 1;
+    }
+
+    .footer-btn.active { 
+        color: #58a6ff; 
+    }
+
+    .footer-btn .icon { 
+        font-size: 1.4rem; 
+    }
+
+    .footer-btn .label { 
+        font-size: 0.7rem; 
+        margin-top: 2px;
     }
 }
