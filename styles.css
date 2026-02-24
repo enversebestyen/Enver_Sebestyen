@@ -54,33 +54,35 @@ body, html {
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 }
 
-/* --- MOBILE LOGIC (The "No-Squish" Update) --- */
+/* --- MOBILE LOGIC (The Fixed Version) --- */
 .mobile {
     display: none !important;
 }
 
 @media (max-width: 768px) {
-    /* 1. Force the body not to scroll so the app feels solid */
+    /* Prevent body from scrolling/bouncing to keep the app-like feel */
     body, html {
         overflow: hidden !important;
         height: 100% !important;
+        position: fixed; 
+        width: 100%;
     }
 
-    /* 2. Hide desktop, show mobile as a vertical flex column */
     .d-desktop { display: none !important; }
     
     .mobile {
         display: flex !important;
         flex-direction: column !important;
-        height: 100vh !important; /* Full screen height */
+        /* dvh is the modern standard for mobile browsers with auto-hiding address bars */
+        height: 100dvh !important; 
         width: 100vw !important;
         background: #15202b;
-        position: fixed; /* Locks the whole app in place */
+        position: relative;
         top: 0;
         left: 0;
     }
 
-    /* 3. The Header (Fixed height) */
+    /* Header with fixed height */
     .mobile-header {
         height: 60px !important;
         flex-shrink: 0 !important;
@@ -97,24 +99,23 @@ body, html {
         color: white;
     }
 
-    /* 4. The Content Area (Takes all remaining space) */
+    /* Content Area: Fills remaining space and scrolls internally */
     .mobile-main, .discover-grid-fixed {
-        flex-grow: 1 !important; /* Expands to fill gap */
-        flex-shrink: 1 !important;
-        overflow-y: auto !important; /* Allows scrolling INSIDE this area only */
+        flex: 1 1 auto !important; 
+        overflow-y: auto !important; 
         padding: 15px;
         width: 100%;
         box-sizing: border-box;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
     }
 
-    /* Specific Grid Setup for Discover Page */
+    /* Discover Page Grid Logic */
     .discover-grid-fixed {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         grid-template-rows: 1fr 1fr !important; 
         gap: 12px;
-        overflow: hidden !important; /* Stops the grid itself from scrolling */
+        overflow: hidden !important; 
     }
 
     .discover-grid-fixed .grid-item {
@@ -133,7 +134,7 @@ body, html {
     .discover-grid-fixed .folder-icon { font-size: 2.5rem; margin-bottom: 8px; }
     .discover-grid-fixed .grid-label { font-size: 1rem; color: #ffffff; font-weight: bold; margin: 0; }
 
-    /* General Components */
+    /* UI Components */
     .content-card, .profile-bio, .profile-banner {
         background: #1a2332;
         border: 1px solid #2d3748;
@@ -146,10 +147,10 @@ body, html {
     .profile-picture { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #58a6ff; overflow: hidden; }
     .profile-picture img, .profile-banner img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* 5. THE FOOTER FIX (Mandatory visibility) */
+    /* FOOTER FIX: Uses dvh context and safe-area insets */
     .mobile-footer {
-        height: 70px !important; /* Fixed height */
-        flex-shrink: 0 !important; /* CRITICAL: Prevents content from squishing it */
+        height: 75px !important;
+        flex-shrink: 0 !important; 
         background: #0d1117;
         display: flex !important;
         flex-direction: row !important;
@@ -158,16 +159,19 @@ body, html {
         border-top: 1px solid #2d3748;
         width: 100% !important;
         z-index: 9999 !important;
+        /* Ensures footer icons aren't covered by the home indicator on new iPhones */
+        padding-bottom: env(safe-area-inset-bottom); 
     }
 
-    /* Buttons inside footer */
     .footer-btn {
         flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-decoration: none;
         color: #5a6c7d;
+        height: 100%;
     }
 
     .footer-btn.active { color: #58a6ff; }
