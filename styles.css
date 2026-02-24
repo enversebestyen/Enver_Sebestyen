@@ -158,42 +158,38 @@ body, html {
         font-weight: bold;
     }
 
-    /* GRID FIXES HERE */
-    .discover-grid-container {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: 1fr 1fr !important;
-        gap: 12px;
-        padding: 12px;
-        flex: 1; 
-        height: calc(100vh - 123px);
-        overflow: hidden;
-    }
+    /* Targeted fix for the Discover Grid */
+.discover-grid-fixed {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important; /* Forces 2 equal rows */
+    gap: 12px;
+    padding: 12px;
+    flex: 1; /* Fills the space between header and footer */
+    height: calc(100% - 116px); /* Header(58px) + Footer(58px) */
+    overflow: hidden; /* Prevents any scrolling */
+}
 
-    .discover-grid-container .grid-item {
-        background: #1a2332;
-        border: 1px solid #2d3748;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-        width: 100%;
-    }
+.discover-grid-fixed .grid-item {
+    background: #1a2332;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* IMPORTANT: Remove aspect-ratio: 1 to allow items to scale to screen height */
+    aspect-ratio: auto !important; 
+    height: 100%;
+    width: 100%;
+}
 
-    .discover-grid-container .folder-icon {
-        font-size: 2rem;
-        margin-bottom: 8px;
-    }
+.discover-grid-fixed .folder-icon {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
 
-    .discover-grid-container .grid-label {
-        font-size: 0.9rem;
-        color: #ffffff;
-        font-weight: bold;
-        margin: 0;
-    }
 
     .profile-picture-container {
         padding: 20px 0;
