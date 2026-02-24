@@ -144,10 +144,43 @@ body, html {
     font-weight: bold;
 }
 
-.discover-grid {
+/* Update these sections in your styles.css */
+
+.discover-grid-container {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    /* This creates two equal columns with no extra outer space */
+    grid-template-columns: 1fr 1fr !important;
+    /* This ensures the grid fills the full height of the main area */
+    grid-template-rows: 1fr 1fr !important;
+    gap: 8px; /* Reduced gap between the 4 boxes */
+    padding: 8px; /* Small padding from the edge of the screen */
+    height: calc(100vh - 123px); /* Accounts for header (58px) and footer (65px) */
+}
+
+.discover-grid-container .grid-item {
+    background: #1a2332;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%; /* Forces the box to fill its grid cell */
+    transition: background 0.2s;
+}
+
+.discover-grid-container .folder-icon {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.discover-grid-container .grid-label {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
 }
 
 .grid-item {
