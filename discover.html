@@ -21,9 +21,7 @@
                 <li><a href="photos.html">My Photos</a></li>
             </ul>
         </section>
-    </div>
-
-    <div class="mobile">
+    </div> <div class="mobile">
         <header class="mobile-header">
             <div class="logo">Enver Sebestyen</div>
         </header>
@@ -63,9 +61,12 @@
         let isDeleting = false;
 
         function typeWriter() {
+            // Script only runs if screen is wider than mobile
             if (window.innerWidth <= 768) return;
+
             const element = document.getElementById("typewriter");
             if (!element) return;
+            
             if (!isDeleting && i <= text.length) {
                 element.innerHTML = text.substring(0, i);
                 i++;
@@ -79,6 +80,7 @@
                 setTimeout(typeWriter, isDeleting ? delayBetween : 500);
             }
         }
+
         window.onload = typeWriter;
     </script>
 </body>
