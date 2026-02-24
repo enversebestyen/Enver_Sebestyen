@@ -36,43 +36,13 @@ body, html {
     margin-bottom: 3rem;
 }
 
-.d-desktop h1 {
-    font-size: 4.5rem;
-    margin: 0 0 1rem 0;
-}
-
-.d-desktop h2 {
-    font-size: 3rem;
-    margin: 0 0 1.5rem 0;
-}
-
-.d-desktop p {
-    font-size: 1.8rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.d-desktop ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.d-desktop li {
-    margin: 1.5rem 0;
-}
-
-.d-desktop a {
-    color: #87ceeb;
-    text-decoration: none;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.d-desktop a:hover {
-    text-decoration: underline;
-    color: #b0e0e6;
-}
+.d-desktop h1 { font-size: 4.5rem; margin: 0 0 1rem 0; }
+.d-desktop h2 { font-size: 3rem; margin: 0 0 1.5rem 0; }
+.d-desktop p { font-size: 1.8rem; line-height: 1.6; margin: 0; }
+.d-desktop ul { list-style: none; padding: 0; margin: 0; }
+.d-desktop li { margin: 1.5rem 0; }
+.d-desktop a { color: #87ceeb; text-decoration: none; font-size: 1.8rem; font-weight: bold; }
+.d-desktop a:hover { text-decoration: underline; color: #b0e0e6; }
 
 @media (min-width: 769px) {
     .typing-text::after {
@@ -81,11 +51,7 @@ body, html {
         margin-left: 5px;
         color: #87ceeb;
     }
-
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 }
 
 /* --- MOBILE LOGIC --- */
@@ -105,7 +71,7 @@ body, html {
     .mobile {
         display: flex !important;
         flex-direction: column;
-        height: 100vh; /* Locked to screen height */
+        height: 100vh; /* This locks the view to exactly the screen height */
         background: #15202b;
         overflow: hidden;
     }
@@ -125,24 +91,22 @@ body, html {
         color: white;
     }
 
-    .mobile-main {
-        flex: 1;
+    /* Standard mobile container AND grid now share the same "flex: 1" logic */
+    .mobile-main, .discover-grid-fixed {
+        flex: 1; 
         overflow-y: auto;
         padding: 12px;
-        padding-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    /* --- DISCOVER GRID FIX (2x2 Proportional) --- */
+    /* Specific Grid Setup */
     .discover-grid-fixed {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: 1fr 1fr !important; /* Forces 2 rows within the space */
-        gap: 10px;
-        padding: 10px;
-        flex: 1; /* Automatically takes all space between header and footer */
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden; 
+        grid-template-rows: 1fr 1fr !important; 
+        gap: 12px;
+        overflow: hidden; /* Stops the grid itself from scrolling */
     }
 
     .discover-grid-fixed .grid-item {
@@ -158,78 +122,16 @@ body, html {
         width: 100%;
     }
 
-    .discover-grid-fixed .folder-icon {
-        font-size: 2.5rem;
-        margin-bottom: 8px;
-    }
+    .discover-grid-fixed .folder-icon { font-size: 2.5rem; margin-bottom: 8px; }
+    .discover-grid-fixed .grid-label { font-size: 1rem; color: #ffffff; font-weight: bold; margin: 0; }
 
-    .discover-grid-fixed .grid-label {
-        font-size: 1rem;
-        color: #ffffff;
-        font-weight: bold;
-        margin: 0;
-    }
-
-    /* --- GENERAL MOBILE COMPONENTS --- */
-    .content-card, .profile-bio, .profile-banner {
+    /* General Components */
+    .content-card, .profile-bio {
         background: #1a2332;
         border: 1px solid #2d3748;
         border-radius: 12px;
         padding: 20px;
         margin-bottom: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .content-card h2, .profile-bio h2 {
-        color: #ffffff;
-        margin-top: 0;
-        font-size: 1.3rem;
-    }
-
-    .content-card p, .profile-bio p {
-        color: #8899a6;
-        line-height: 1.5;
-        margin-bottom: 0;
-    }
-
-    .content-card a {
-        color: #87ceeb !important;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .profile-picture-container {
-        padding: 20px 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .profile-picture {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 3px solid #58a6ff;
-        overflow: hidden;
-    }
-
-    .profile-picture img, .profile-banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* FOOTER FIX: Uses relative positioning and prevents disappearance */
-    .mobile-footer {
-        width: 100%;
-        height: 65px;
-        background: #0d1117;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border-top: 1px solid #2d3748;
-        z-index: 1000;
-        flex-shrink: 0; 
-        position: relative; 
     }
 
     .footer-btn {
@@ -241,16 +143,21 @@ body, html {
         flex: 1;
     }
 
-    .footer-btn.active { 
-        color: #58a6ff; 
-    }
+    .footer-btn.active { color: #58a6ff; }
+    .footer-btn .icon { font-size: 1.4rem; }
+    .footer-btn .label { font-size: 0.7rem; margin-top: 2px; }
 
-    .footer-btn .icon { 
-        font-size: 1.4rem; 
-    }
-
-    .footer-btn .label { 
-        font-size: 0.7rem; 
-        margin-top: 2px;
+    /* THE FINAL FOOTER FIX */
+    .mobile-footer {
+        width: 100%;
+        height: 65px;
+        background: #0d1117;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid #2d3748;
+        flex-shrink: 0; /* This forces the footer to stay visible */
+        position: relative; 
+        z-index: 1000;
     }
 }
