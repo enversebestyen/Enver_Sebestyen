@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ES - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -27,7 +27,9 @@
             <h2>Contact</h2>
             <a href="mailto:enversebestyen@gmail.com">enversebestyen@gmail.com</a>
         </section>
-    </div> <div class="mobile">
+    </div> 
+
+    <div class="mobile">
         <header class="mobile-header">
             <div class="logo">Enver Sebestyen</div>
         </header>
@@ -60,7 +62,9 @@
         let isDeleting = false;
 
         function typeWriter() {
+            // Stop the script if on mobile to prevent errors
             if (window.innerWidth <= 768) return;
+            
             const element = document.getElementById("typewriter");
             if (!element) return;
             
