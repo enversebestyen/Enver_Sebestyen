@@ -2,15 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Me | ES</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="d-desktop">
-        <h1>Enver Sebestyen</h1>
-        <p>I am Enver Sebestyen otherwise known as Enverž Sebestyen.</p>
-    </div>
+        <section class="d-bio-section">
+            <h1 id="typewriter" class="typing-text"></h1> <p>I am Enver Sebestyen otherwise known as Enverž Sebestyen.</p>
+        </section>
+        
+        <section class="d-discover">
+            <h2>Discover</h2>
+            <ul>
+                <li><a href="projects.html">My Projects</a></li>
+                <li><a href="blogs.html">My Blogs</a></li>
+                <li><a href="art.html">My Art and Designs</a></li>
+                <li><a href="photos.html">My Photos</a></li>
+            </ul>
+        </section>
+    </div> 
 
     <div class="mobile">
         <header class="mobile-header">
@@ -51,7 +62,6 @@
 
     function typeWriter() {
         if (window.innerWidth <= 768) return;
-
         const element = document.getElementById("typewriter");
         if (!element) return;
         
@@ -68,10 +78,7 @@
             setTimeout(typeWriter, isDeleting ? delayBetween : 500);
         }
     }
-
     window.onload = typeWriter;
 </script>
-
-
 </body>
 </html>
