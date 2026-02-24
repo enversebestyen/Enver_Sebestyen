@@ -13,6 +13,7 @@ body, html {
     overflow: hidden;
 }
 
+/* --- DESKTOP STYLES --- */
 .d-desktop {
     display: flex !important;
     flex-direction: column;
@@ -87,14 +88,14 @@ body, html {
     }
 }
 
+/* --- MOBILE LOGIC --- */
 .mobile {
     display: none !important;
 }
 
 @media (max-width: 768px) {
     body, html {
-        overflow-x: hidden;
-        overflow-y: hidden;
+        overflow: hidden;
     }
 
     .d-desktop {
@@ -104,7 +105,7 @@ body, html {
     .mobile {
         display: flex !important;
         flex-direction: column;
-        height: 100vh;
+        height: 100vh; /* Locked to screen height */
         background: #15202b;
         overflow: hidden;
     }
@@ -124,13 +125,53 @@ body, html {
         color: white;
     }
 
+    /* Standard mobile container for scrolling pages (Home, Connect, Me) */
     .mobile-main {
         flex: 1;
         overflow-y: auto;
         padding: 12px;
-        padding-bottom: 80px;
+        padding-bottom: 20px;
     }
 
+    /* --- DISCOVER GRID FIX (2x2 Proportional) --- */
+    .discover-grid-fixed {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr !important; /* Two equal rows */
+        gap: 12px;
+        padding: 12px;
+        flex: 1; /* Fills only the exact space between header and footer */
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden; 
+    }
+
+    .discover-grid-fixed .grid-item {
+        background: #1a2332;
+        border: 1px solid #2d3748;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%; 
+        width: 100%;
+    }
+
+    .discover-grid-fixed .folder-icon {
+        font-size: 2.5rem;
+        margin-bottom: 8px;
+    }
+
+    .discover-grid-fixed .grid-label {
+        font-size: 1rem;
+        color: #ffffff;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    /* --- GENERAL MOBILE COMPONENTS --- */
     .content-card, .profile-bio, .profile-banner {
         background: #1a2332;
         border: 1px solid #2d3748;
@@ -152,49 +193,11 @@ body, html {
         margin-bottom: 0;
     }
 
-    .content-card a, .contact-info a {
+    .content-card a {
         color: #87ceeb !important;
         text-decoration: none;
         font-weight: bold;
     }
-
-    /* --- DISCOVER GRID FIX --- */
-.discover-grid-fixed {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important; /* Two equal columns */
-    grid-template-rows: 1fr 1fr !important;    /* Two equal rows */
-    gap: 10px;
-    padding: 10px;
-    flex: 1;           /* Dynamically fills the screen between header and footer */
-    overflow: hidden;  /* Disables scrolling completely */
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.discover-grid-fixed .grid-item {
-    background: #1a2332;
-    border: 1px solid #2d3748;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%; /* Fills the grid cell vertically */
-    width: 100%;  /* Fills the grid cell horizontally */
-}
-
-.discover-grid-fixed .folder-icon {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-}
-
-.discover-grid-fixed .grid-label {
-    font-size: 1rem;
-    color: #ffffff;
-    font-weight: bold;
-    margin: 0;
-}
 
     .profile-picture-container {
         padding: 20px 0;
@@ -216,9 +219,8 @@ body, html {
         object-fit: cover;
     }
 
+    /* FIXED FOOTER: No longer uses 'fixed' position to avoid dragging bugs */
     .mobile-footer {
-        position: fixed;
-        bottom: 0;
         width: 100%;
         height: 65px;
         background: #0d1117;
@@ -227,6 +229,7 @@ body, html {
         align-items: center;
         border-top: 1px solid #2d3748;
         z-index: 1000;
+        flex-shrink: 0; 
     }
 
     .footer-btn {
