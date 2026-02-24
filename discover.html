@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Discover | ES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover - Your Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="d-desktop">
+        <section class="d-bio-section">
+            <h1 id="typewriter" class="typing-text"></h1>
+            <p>I am Enver Sebestyen otherwise known as Enverž Sebestyen.</p>
+        </section>
         <section class="d-discover">
             <h2>Discover</h2>
             <ul>
                 <li><a href="projects.html">My Projects</a></li>
                 <li><a href="blogs.html">My Blogs</a></li>
                 <li><a href="art.html">My Art and Designs</a></li>
+                <li><a href="photos.html">My Photos</a></li>
             </ul>
         </section>
     </div>
@@ -24,7 +28,7 @@
             <div class="logo">Enver Sebestyen</div>
         </header>
         
-        <main class="mobile-main discover-grid">
+        <main class="mobile-main discover-grid-container">
             <div class="grid-item">
                 <div class="folder-icon">📁</div>
                 <p class="grid-label">Projects</p>
@@ -47,55 +51,11 @@
         </main>
         
         <footer class="mobile-footer">
-            <a href="index.html" class="footer-btn">
-                <span class="icon">🏠</span>
-                <span class="label">Home</span>
-            </a>
-            <a href="connect.html" class="footer-btn">
-                <span class="icon">🔗</span>
-                <span class="label">Connect</span>
-            </a>
-            <a href="discover.html" class="footer-btn active">
-                <span class="icon">🔍</span>
-                <span class="label">Discover</span>
-            </a>
-            <a href="me.html" class="footer-btn">
-                <span class="icon">👤</span>
-                <span class="label">Me</span>
-            </a>
+            <a href="index.html" class="footer-btn"><span class="icon">🏠</span><span class="label">Home</span></a>
+            <a href="connect.html" class="footer-btn"><span class="icon">🔗</span><span class="label">Connect</span></a>
+            <a href="discover.html" class="footer-btn active"><span class="icon">🔍</span><span class="label">Discover</span></a>
+            <a href="me.html" class="footer-btn"><span class="icon">👤</span><span class="label">Me</span></a>
         </footer>
     </div>
-
-<script>
-    const text = "Enver Sebestyen";
-    const speed = 150;
-    const delayBetween = 3000;
-    let i = 0;
-    let isDeleting = false;
-
-    function typeWriter() {
-        if (window.innerWidth <= 768) return;
-
-        const element = document.getElementById("typewriter");
-        if (!element) return;
-        
-        if (!isDeleting && i <= text.length) {
-            element.innerHTML = text.substring(0, i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else if (isDeleting && i >= 0) {
-            element.innerHTML = text.substring(0, i);
-            i--;
-            setTimeout(typeWriter, speed / 2);
-        } else {
-            isDeleting = !isDeleting;
-            setTimeout(typeWriter, isDeleting ? delayBetween : 500);
-        }
-    }
-
-    window.onload = typeWriter;
-</script>
-
-
-</body>
+    </body>
 </html>
